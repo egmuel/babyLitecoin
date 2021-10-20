@@ -1,4 +1,30 @@
 
+/* 
+
+RORONOAZORO is HERE!
+
+supply -> 1000000000000000
+
+burn -> 42% total supply
+
+marketing Wallet -> 5% total supply
+
+community Wallet -> 5% total supply
+
+max Transaction buy/sell -> 1% total supply
+
+slippage -> 15/18
+
+reflection -> 3%
+
+liquidity fee -> 3%
+
+marketing/dev fee 4%
+
+buyback 5%
+
+*/
+
 
 pragma solidity ^0.8.4;
 
@@ -409,12 +435,12 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
 
-contract BabyLitecoin is Context, IERC20, Ownable {
+contract ZoroInu is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
     
-    address payable public marketingAddress = payable(0x5d9A1963c9bAa985FfEFCE6c8F24Fc6438D85E7B); // Marketing Address
-    address payable public communityAddress = payable(0x42AC78804f3cA0dF02c63A3e1aD9F62F1A80B8C5); // Community Address
+    address payable public marketingAddress = payable(0x75A43158a638273C7635186Ceb13516506E3c719); // Marketing Address
+    address payable public communityAddress = payable(0x9b6D3761f0433BFDF646857ea302E2D677302EEE); // Community Address
     
     address public immutable deadAddress = 0x000000000000000000000000000000000000dEaD;
     mapping (address => uint256) private _rOwned;
@@ -431,8 +457,8 @@ contract BabyLitecoin is Context, IERC20, Ownable {
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
 
-    string private _name = "Baby Litecoin";
-    string private _symbol = "BabyLtc";
+    string private _name = "Roronoa Zoro Inu";
+    string private _symbol = "RORONOAZORO";
     uint8 private _decimals = 9;
 
 
@@ -442,7 +468,7 @@ contract BabyLitecoin is Context, IERC20, Ownable {
     uint256 public _liquidityFee = 12;  //actually addition of buyback fee , marketing fee, community fee
     uint256 private _previousLiquidityFee = _liquidityFee;
     
-    uint256 public marketingcommunityDivisor = 4;   // divisor to get the 4 out 12 fee for marketing,community, remaning 8% is getting accumulated for buy back
+    uint256 public marketingcommunityDivisor = 4;   // divisor to get the 4 out 12 fee for marketing, community, remaning 8% is getting accumulated for buy back
     
     uint256 public _maxTxAmount = 10000000 * 10**6 * 10**9; // 10 trillion, or 1% of total supply 
     uint256 private minimumTokensBeforeSwap = 200000 * 10**6 * 10**9; 
